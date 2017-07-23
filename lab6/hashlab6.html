@@ -1,0 +1,85 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><center><u><h2>Hash Tables</h2></u></center>
+
+In this lab, you will write a program to hash words. 
+You will implement the three different hash functions described below and one hash
+function of your choosing. Use separate chaining for collision resolution. 
+You can make use of the Java Collections Framework's fundamental data structures
+in your implementations, e.g. List or Vector. Place your HashTable class in a file
+named HashTable.java.
+
+<h2>Hash Functions</h2>
+You need to implement these three hash functions that take String keys. For each function,
+you should calculate the value for the key and bring the result into the range 
+of your hash table. You also need to provide your own hash function that takes a String 
+as the key. Refer to page 262-264 of the CLRS text for ideas. Table sizes is to be
+chosen by you.
+<ol>
+<li> This hash function adds up the ASCII values of the characters in the key. </li>
+
+<li> This hash function uses the first three characters of the key, 
+therefore all keys are assumed to be at least three characters long.
+The value for a key <i>k</i> is calculated as: 
+k[0] + 27 * k[1] + 729 * k[2]
+where 27 represents the number of letters in the English alphabet, plus the blank, 
+and 729 is 27<sup>2</sup>. </li>
+
+<li> This hash function uses all characters in the key and calculates <br>
+&#8721; <sub> i=0,...,keysize-1 </sub> k[keysize - i - 1] * 37 <sup>i</sup>.  
+You can compute this polynomial function (of 37) by using Horner's rule, for example: <br>
+h = k0 + (37 * k1) + (37 <sup>2</sup> * k2) can be computed recursively 
+by h = ( (k2) * 37 + k1 ) * 37 + k0. <br>
+</li>
+
+</ol>
+
+<h2>Methods you need include in your HashTable class</h2>
+<ul>
+<li><b>void print( )</b> - Print the hash table in the following format. Each 
+array location will be printed on a separate line. The line will start with the 
+number of the array location followed by a : and followed by one tab. You will 
+then print each word stored at that hash array location separated by a , and a 
+single space. After all words at that hash array location are printed, you will 
+output a return. <a href="sample_hash.out">Here</a> 
+is a sample of what your output should look like</li>
+<li><b>void processFile( String filename ) </b>- Add all of the words 
+in the file specified as "filename" to the hash table. 
+<a href="test1.txt">Here</a> is a sample input file. Use push back to insert each 
+of the words into the list at the hash location that the words hashes to.</li>
+<li><b> void printStats( ) </b>- Print the hash statistics: total number 
+of collisions (keep track of this during insertions) the
+length of the longest list, and the average length of all lists.
+</li></ul>
+<br>
+Your main method (in Main.java) should take the input file as a command line
+parameter, insert the values in the file into the hash table, 
+print out the hash table to the screen, and finally print the stats
+immediately before returning from main. <br>
+<br>
+
+For further testing, you can use the following dictionary input files:
+ <a href="dict5.txt">dict5.txt</a>, <a href="dict7.txt">dict7.txt</a>.
+ 
+<h3>Open Addressing Hashing</h3>
+Write a program in a file named OpenAddressCollisionTests.java (file should have 
+a main method), that randomly generates an input sequence of integer keys and 
+performs collision resolution in an open addressing hashing scheme using the 
+following probing sequences: linear probing, quadratic probing, and cubic probing. 
+Cubic probing is simply using an offset of i<sup>3</sup> away from the original 
+collision location, versus i for linear and i<sup>2</sup> for quadratic. 
+Then run some tests varying table sizes and maximum number of elements inserted 
+into the hash table to see when the number of collisions dominates the cost of inserts.
+Use table sizes that are prime numbers and maximum number of elements inserted at 
+25%, 50%, 75%, and 90% of the size of the hash table.
+
+<h3>Rubric</h3>
+
+<ul>
+<li>20 points - Attendance</li>
+<li>60 points - 4 Hash functions and main test method </li>
+<li>20 points - Open Hashing Collision Testing</li>
+
+</ul>
+Submit all of your files, via the Piazza Turn-in link, in a tar archive named lab6.tgz. 
+Include your Main.java for testing. Don't forget to put a class header on all files you submit.
+</body></html>

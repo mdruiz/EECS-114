@@ -1,0 +1,30 @@
+8
+20
+Nile
+Mondavi
+Lodi
+Rivoli
+Pyramids
+Zurich
+Marengo
+Friedland
+Nile Rivoli
+Marengo Rivoli
+Pyramids Mondavi
+Pyramids Lodi
+Friedland Mondavi
+Mondavi Lodi
+Lodi Mondavi
+Nile Marengo
+Mondavi Nile
+Lodi Rivoli
+Zurich Nile
+Rivoli Nile
+Mondavi Zurich
+Lodi Pyramids
+Pyramids Marengo
+Zurich Pyramids
+Zurich Lodi
+Friedland Nile
+Mondavi Friedland
+Friedland Marengo
